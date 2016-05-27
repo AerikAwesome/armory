@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--	<script src="http://code.jquery.com/jquery-2.2.4.min.js"></script> -->
 </head>
 
 <body>
@@ -15,60 +14,72 @@
 	<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Aerik's Armory</a>
+				<a class="navbar-brand" href="#home" aria-controls="home" role="tab" data-toggle="tab">Aerik's Armory</a>
 			</div>
 			<ul class="nav nav-tabs navbar-nav navbar-right">
-				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-				<li role="presentation"><a href="#blog" aria-controls="blog" role="tab" data-toggle="tab">Blog</a></li>
-				<li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a></li>
-				<li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About Me</a></li>
-				<li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a></li>
+				<li role="presentation" class="active">
+					<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+				</li>
+				<li role="presentation">
+					<a href="#blog" aria-controls="blog" role="tab" data-toggle="tab">Blog</a>
+				</li>
+				<li role="presentation">
+					<a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a>
+				</li>
+				<li role="presentation">
+					<a href="#about" aria-controls="about" role="tab" data-toggle="tab">About Me</a>
+				</li>
+				<li role="presentation">
+					<a href="#contact" aria-controls="contact" role="tab" data-toggle="tab">Contact</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active" id="home" class="container">	
+		<div role="tabpanel" class="tab-pane active" id="home" class="container">
 			<div>
 				<h1>Welcome to Aerik's Armory</h1>
 				<p class="lead">
-				Welcome to my armory. Here you can find my blog, projects, and information about me.
-				<br>
-				For now, no content is online, as this site is still in it's very early development stage.
+					Welcome to my armory. Here you can find my blog, projects, and information about me.
+					<br>
+					For now, no content is online, as this site is still in it's very early development stage.
 				</p>
 			</div>
 		</div>
 
 		<div role="tabpanel" class="tab-pane" id="blog" class="container">
-			<h1>Aerik's Blog</h1>
-			<p class="lead">
-			This is where I would post my blog.
-			<br>
-			If I had one!
-			</p>
+			<h1>If you see this, something went wrong.</h1>
 		</div>
-		
+
 		<div role="tabpanel" class="tab-pane" id="projects" class="container">
-			<h1>Aerik's Projects</h1>
-			<p class="lead">No content here yet.</p>
+			<h1>If you see this, something went wrong.</h1>
 		</div>
-		
+
 		<div role="tabpanel" class="tab-pane" id="about" class="container">
-			<h1>About Me</h1>
-			<p class="lead">No content here yet.</p>
+			<h1>If you see this, something went wrong.</h1>
 		</div>
-		
+
 		<div role="tabpanel" class="tab-pane" id="contact" class="container">
-			<h1>Contact</h1>
-			<p class="lead">No content here yet.</p>
+			<h1>If you see this, something went wrong.</h1>
 		</div>
-		
+
 	</div>
 	<!-- Bootstrap core JavaScript
-    ==================================================
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>');</script>
-    <script src="js/bootstrap.min.js"></script>
+	==================================================
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>');
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#blog').load('includes/blog.html');
+			$('#projects').load('includes/projects.html');
+			$('#about').load('includes/about.html');
+			$('#contact').load('includes/contact.html');
+		});
+	</script>
 </body>
 </html>
