@@ -8,3 +8,4 @@ include
 __pycache__
 .idea
 armory/blog/migrations/
+armory/media/photoErik.jpg
