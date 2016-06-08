@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('com_text', models.TextField(max_length=300)),
                 ('com_date', models.DateTimeField(verbose_name='date commented')),
-                ('com_author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Author')),
+                ('com_author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='armory_app.Author')),
             ],
         ),
         migrations.CreateModel(
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('post_date', models.DateTimeField(verbose_name='date published')),
-                ('post_author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='blog.Author')),
+                ('post_author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='armory_app.Author')),
             ],
         ),
     ]

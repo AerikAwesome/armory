@@ -9,3 +9,5 @@ __pycache__
 .idea
 armory/blog/migrations/
 armory/media/photoErik.jpg
+armory/.project
+armory/.pydevproject
