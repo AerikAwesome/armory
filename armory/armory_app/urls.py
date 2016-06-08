@@ -1,10 +1,9 @@
-from django.conf.urls import url
-armory_appfrom . import views
+from django.conf.urls import urlfrom . import views
 
 app_name = 'armory_app'
 urlpatterns = [
-    # ex: /armory_app/
-    url(r'^$', views.index, name='index'),
+    # ex: /
+    url(r'^$', views.index, name='index'),    # ex: /includes/$    url(r'^includes/(?P<req_file>.+)/$', views.includes, name='includes'),
     # ex: /armory_app/5/
     url(r'^(?P<post_id>[0-9]+)/$', views.detail, name='detail'),
     # ex: /armory_app/5/comment/

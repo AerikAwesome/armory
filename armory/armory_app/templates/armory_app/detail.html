@@ -7,7 +7,7 @@
     <li>{{ comment.com_text }}</li>
     {% endfor %}
 </ul>
-<form action ="{% url 'blog:comment' post.id %}" method="post">
+<form action ="{% url 'armory_app:comment' post.id %}" method="post">
     <input type="text" name="com_author" id="com_author">
     <label for="com_author">Author</label><br />
     <input type="text" name="com_text" id="com_text" />

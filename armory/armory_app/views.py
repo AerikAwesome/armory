@@ -2,16 +2,22 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
 from django.template import loader
-from armory_app import Post
+from armory_app.models import Post
+from django.views.generic import View
+from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
-    latest_post_list = Post.objects.order_by('-post_date')[:5]
-    template = loader.get_template('armory_app/index.html')
-    context = {
-        'latest_post_list': latest_post_list,
-    }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'armory_app/index.html')
+
+def includes(request, req_file='about.html'):
+    include = 'armory_app/includes/%s' % req_file
+    template = include
+    return render(request, include)
+
+def post_list(request):
+    posts = Post.objects.order_by('-post_date')[:5]
+    return render(request, 'armory_app/post_list.html', {'posts': posts})
 
 def detail(request, post_id):
     try:
@@ -31,6 +37,4 @@ def comment(request, post_id):
             'error_message': "You didn't submit a comment.",
         })
     else:
-
-
-    return HttpResponse("You're commenting on post %s." % post_id)
+        return HttpResponse("You're commenting on post %s." % post_id)
