@@ -1,18 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.http import Http404
 from django.template import loader
 from armory_app.models import Post
 from django.views.generic import View
-from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
     return render(request, 'armory_app/index.html')
 
+def blog(request):
+    latest_post_list = Post.objects.order_by('-post_date')[:5]
+    template = loader.get_template('armory_app/blog.html')
+    context = {
+               'latest_post_list': latest_post_list,
+    }
+    return render(request, 'armory_app/blog.html')
+
 def includes(request, req_file='about.html'):
     include = 'armory_app/includes/%s' % req_file
-    template = include
     return render(request, include)
 
 def post_list(request):
