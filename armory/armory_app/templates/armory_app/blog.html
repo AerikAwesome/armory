@@ -1,12 +1,11 @@
-<h1>Blog</h1>
 <div class="row">
 	{% if latest_post_list %}
-	<div class="col-lg-8">
+	<div class="col-sm-8">
 		{% for post in latest_post_list %}
-		<div class="blog-post">
-			<h2 class="blog-post-title>{{ post.post_title }}</h2>
-			<p class="blog-post-meta">{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
-			<div class="blog-post-text">{{ post.post_text }}</div>
+		<div>
+			<h2>{{ post.post_title }}</h2>
+			<p>{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
+			<div>{{ post.post_text }}</div>
 			
 		</div>
 		{% endfor %}
@@ -14,6 +13,7 @@
 	{% else %}
 	<p>No blog post are currently available.</p>
 	{% endif %}
+</div>
 </div>
 
 

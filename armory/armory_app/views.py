@@ -10,12 +10,12 @@ def index(request):
     return render(request, 'armory_app/index.html')
 
 def blog(request):
-    latest_post_list = Post.objects.order_by('-post_date')[:5]
+    latest_post_list = Post.objects.order_by('post_date')[:5]
     template = loader.get_template('armory_app/blog.html')
     context = {
                'latest_post_list': latest_post_list,
     }
-    return render(request, 'armory_app/blog.html')
+    return render(request, 'armory_app/blog.html', context)
 
 def includes(request, req_file='about.html'):
     include = 'armory_app/includes/%s' % req_file
