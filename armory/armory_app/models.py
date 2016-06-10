@@ -22,7 +22,7 @@ class Post(models.Model):
     pass
 
 class Comment(models.Model):
-    com_post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    com_post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     com_author = models.CharField(max_length=100, default='Anonymous')
     com_text = models.TextField(max_length=300, default='')
     com_date = models.DateTimeField('date commented')

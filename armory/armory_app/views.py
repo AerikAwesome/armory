@@ -1,9 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.http import Http404
-from django.template import loader
 from armory_app.models import Post
-from django.views.generic import View
 
 # Create your views here.
 def index(request):
@@ -11,7 +9,6 @@ def index(request):
 
 def blog(request):
     latest_post_list = Post.objects.order_by('post_date')[:5]
-    template = loader.get_template('armory_app/blog.html')
     context = {
                'latest_post_list': latest_post_list,
     }

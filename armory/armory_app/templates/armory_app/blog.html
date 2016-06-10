@@ -6,7 +6,16 @@
 			<h2>{{ post.post_title }}</h2>
 			<p>{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
 			<div>{{ post.post_text }}</div>
-			
+			<br>
+			{% for comment in post.comments.all %}
+			<div>
+				<div class="date">{{ comment.com_date }}</div>
+				<strong>{{ comment.com_author }}</strong>
+				<p>{{ comment.com_text|linebreaks }}</p>
+			</div>
+			{% empty %}
+				<p>No comments here yet</p>
+			{% endfor %}
 		</div>
 		{% endfor %}
 	</div>
