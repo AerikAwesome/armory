@@ -1,3 +1,4 @@
+{% load django_markdown django_markdown_static %}
 <div class="row">
 	{% if latest_post_list %}
 	<div class="col-sm-8">
@@ -5,7 +6,7 @@
 		<div>
 			<h2>{{ post.post_title }}</h2>
 			<p>{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
-			<div>{{ post.post_text }}</div>
+			<div>{{ post.post_text|markdown }}</div>
 			<br>
 			{% for comment in post.comments.all %}
 			<div>

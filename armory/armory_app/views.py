@@ -8,7 +8,7 @@ def index(request):
     return render(request, 'armory_app/index.html')
 
 def blog(request):
-    latest_post_list = Post.objects.order_by('post_date')[:5]
+    latest_post_list = Post.objects.order_by('post_date')[:10]
     context = {
                'latest_post_list': latest_post_list,
     }
