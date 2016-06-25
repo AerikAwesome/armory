@@ -1,30 +1,53 @@
 {% load django_markdown django_markdown_static %}
 <div class="row">
-	{% if latest_post_list %}
-	<div class="col-sm-8">
-		{% for post in latest_post_list %}
-		<div>
-			<h2>{{ post.post_title }}</h2>
-			<p>{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
-			<div>{{ post.post_text|markdown }}</div>
-			<br>
-			{% for comment in post.comments.all %}
-			<div>
-				<div class="date">{{ comment.com_date }}</div>
-				<strong>{{ comment.com_author }}</strong>
-				<p>{{ comment.com_text|linebreaks }}</p>
-			</div>
-			{% empty %}
-				<p>No comments here yet</p>
-			{% endfor %}
-		</div>
-		{% endfor %}
+	<div class="col-md-7">
+		<h1>Blog
+			<p class="lead">Aerik's Thoughts</p>
+		</h1>
 	</div>
-	{% else %}
-	<p>No blog post are currently available.</p>
-	{% endif %}
+	<div class="col-md-5">
+	<!-- Banner here -->
+	</div>
 </div>
+</div> <!-- closing top-level container -->
+<div class="container"> <!-- Opening new container, do not close -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel">
+			<div class="panel-body">	
+				<!-- Blog posts -->
+				{% for post in latest_post_list %}
+				<div class="row">
+					<br>
+					<div class="col-md-2 col-sm3 text-center">
+						<a class="story-img" href="#"><img src="//placehold.it/100" style="width:100px;height:100px" class="img-circle"></a>
+					</div>
+					
+					<div class="col-md-10 col-sm-9">
+						<h3>{{ post.post_title }}</h3>
+						<p class="lead">{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
+						<div class="row">
+							<div class="col-xs-9">
+								<div>{{ post.post_text|markdown }}</div>
+								<p class="lead"><button class="btn btn-default">Read More</button></p>
+								<!-- Insert code to display tags
+								<p class="pull-right"><span class="label label-default">keyword</span> 
+								Insert code to display number of comments
+								-->
+							</div>
+							<div class="col-xs-3"></div>
+						</div>
+						<br>
+						<br>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- End of blog posts -->
+			</div>
+		</div><!-- end panel -->
+	</div>
 </div>
+
 
 
 <!--
