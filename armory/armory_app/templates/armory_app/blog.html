@@ -1,4 +1,5 @@
 {% load django_markdown django_markdown_static %}
+{% load humanize %}
 <div class="row">
 	<div class="col-md-7">
 		<h1>Blog
@@ -25,15 +26,19 @@
 					
 					<div class="col-md-10 col-sm-9">
 						<h3>{{ post.post_title }}</h3>
-						<p class="lead">{{ post.post_date }} by <a href="#">{{ post.post_author }}</a></p>
+						<h5>By <a href="#">{{ post.post_author }}</a> - <small>{{ post.post_date|naturaltime }}</small></h5>
+						<hr>
 						<div class="row">
 							<div class="col-xs-9">
 								<div>{{ post.post_text|markdown }}</div>
-								<p class="lead"><button class="btn btn-default">Read More</button></p>
-								<!-- Insert code to display tags
-								<p class="pull-right"><span class="label label-default">keyword</span> 
-								Insert code to display number of comments
-								-->
+								<button type="button" class="btn btn-default">Read more</button>
+								<hr>
+								<div class="clearfix">
+									<span class="pull-left">{{ post.comments.all.count }} comments</span>
+									{% for tag in post.tags.all %}
+									<span class="label label-default pull-right">{{ tag.name }}</span>
+									{% endfor %}
+								</div>
 							</div>
 							<div class="col-xs-3"></div>
 						</div>
