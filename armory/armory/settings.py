@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'armory_app.apps.BlogConfig',
     'imagekit',
     'django_markdown',
+    'taggit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

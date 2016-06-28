@@ -2,6 +2,7 @@ from django.db import models
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from django_markdown.models import MarkdownField
+from taggit.managers import TaggableManager
 
 # Create your models here.
 class Author(models.Model):
@@ -18,6 +19,7 @@ class Post(models.Model):
     post_title = models.CharField(max_length=200, default='A title here')
     post_text = MarkdownField(default='Some text here.')
     post_date = models.DateTimeField('date published')
+    tags = TaggableManager()
     def __str__(self):
         return self.post_title
     pass
