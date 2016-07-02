@@ -22,6 +22,9 @@
 				<li role="presentation">
 					<a href="#blog" aria-controls="blog" role="tab" data-toggle="tab">Blog</a>
 				</li>
+				<li style="display:none;">
+					<a href="#blog_detail" aria-controls="blog_detail" role="tab" data-toggle="tab"></a>
+				</li>
 				<li role="presentation">
 					<a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Projects</a>
 				</li>
@@ -37,17 +40,14 @@
 
 	<div class="tab-content container">
 		<div role="tabpanel" class="tab-pane fade in active" id="home" class="container">
-			<div>
-				<h1>Welcome to Aerik's Armory</h1>
-				<p class="lead">
-					Welcome to my armory. Here you can find my blog, projects, and information about me.
-					<br>
-					For now, no content is online, as this site is still in it's very early development stage.
-				</p>
-			</div>
+			{% include "armory_app/home.html" %}
 		</div>
 
 		<div role="tabpanel" class="tab-pane fade" id="blog" class="container">
+			<h1>If you see this, something went wrong.</h1>
+		</div>
+		
+		<div role="tabpanel" class="tab-pane fade" id="blog_detail" class="container">
 			<h1>If you see this, something went wrong.</h1>
 		</div>
 
@@ -72,23 +72,16 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#blog').load('/blog/');
+			$('#blog').load('/blog/0');
 			$('#projects').load('/includes/projects.html/');
 			$('#about').load('/includes/about.html/');
 			$('#contact').load('/includes/contact.html/');
 		});
+		function detailLoad(id) {
+			var detailUrl = '/blog/detail/' + id
+			$('#blog_detail').load(detailUrl);
+			$('.nav-tabs a[href="#blog_detail"]').tab('show')
+		}
 	</script>
 </body>
 </html>
-
-<!--
-{% if latest_post_list %}
-    <ul>
-        {% for post in latest_post_list %}
-            <li><a href="{% url 'armory_app:detail' post.id %}">{{ post.post_title }}</a></li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No blog posts are available.</p>
-{% endif %}
--->
